@@ -33,7 +33,7 @@ def overwriteFiles(path)
     newFileName = generateUniqueRandomName(fileNames)
     newFilePath = Nil.joinPaths(File.dirname(file.path), newFileName)
     File.rename(file.path, newFilePath)
-    commandline = "shred -n 0 -z -u \"#{newFilePath}\""
+    commandline = "shred -n 0 -z -f -u \"#{newFilePath}\""
     puts "Executing: #{commandline}"
     `#{commandline}`
   end
